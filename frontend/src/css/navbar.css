@@ -1,0 +1,336 @@
+:root {
+  --navbar-height: 68px;
+  --navbar-bg: transparent;
+  /* Prime Gradient */
+  --navbar-scrolled-bg: #141414;
+  /* Prime Dark Blue */
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--navbar-height);
+  z-index: 9999;
+  /* Boosted to ensure it's always on top */
+  background-color: var(--navbar-bg);
+  transition: background-color 0.3s ease;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 10%, transparent);
+}
+
+.navbar--scrolled {
+  background-color: var(--navbar-scrolled-bg);
+  border-bottom: none;
+  box-shadow: none;
+}
+
+.navbar__container {
+  max-width: 1400px;
+  /* Wider container for Netflix look */
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 40px;
+  /* More horizontal padding */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.navbar__logo {
+  font-size: 1.5rem;
+  /* Slightly reduced */
+  font-weight: 700;
+  color: #e50914;
+  /* Netflix Red */
+  text-decoration: none;
+  margin-right: 40px;
+}
+
+.navbar__logo span {
+  color: #fff;
+}
+
+/* LINKS */
+.navbar__links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex: 1;
+}
+
+.navbar__link {
+  color: #e5e5e5;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 400;
+  transition: color 0.2s;
+  padding: 5px 0;
+}
+
+.navbar__link:hover {
+  color: #b3b3b3;
+}
+
+.navbar__link.active {
+  color: #fff;
+  font-weight: 700;
+  /* Option: Add border bottom if desired, but bold is cleaner for this style */
+  /* border-bottom: 2px solid #fff; */
+}
+
+/* RIGHT SECTION */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Search Bar (Desktop) */
+/* SEARCH BAR */
+.navbar__search {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 12px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.navbar__search:focus-within {
+  background: #000;
+  border-color: #fff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.navbar__search input {
+  background: transparent;
+  border: none;
+  color: #fff;
+  padding-left: 10px;
+  font-size: 0.95rem;
+  width: 240px;
+  /* Wider */
+  outline: none;
+}
+
+.navbar__search input::placeholder {
+  color: #aaa;
+}
+
+.search-icon {
+  color: #eee;
+  transition: transform 0.2s ease;
+}
+
+.navbar__search:focus-within .search-icon {
+  transform: scale(1.1);
+  color: #fff;
+}
+
+/* Clear Search Button */
+.clear-search-btn {
+  background: none;
+  border: none;
+  color: #b3b3b3;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  margin-left: 4px;
+  border-radius: 50%;
+}
+
+.clear-search-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.clear-search-btn:active {
+  transform: scale(0.9);
+}
+
+/* ICONS & BADGE */
+.navbar__icon-link {
+  color: #fff;
+  transition: all 0.2s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar__icon-link:hover {
+  color: #b3b3b3;
+  transform: scale(1.1);
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background-color: #e50914;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 800;
+  height: 18px;
+  width: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* User Profile */
+.navbar__user {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  background-color: #333;
+  /* Placeholder color */
+  border-radius: 4px;
+  /* Rounded square avatar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  overflow: hidden;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.logout-btn:hover {
+  opacity: 1;
+}
+
+/* Auth Buttons */
+.auth-buttons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.btn-text {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background-color: #e50914;
+  color: #fff;
+  padding: 6px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #f40612;
+}
+
+/* Mobile Toggle */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  position: absolute;
+  top: var(--navbar-height);
+  left: 0;
+  width: 100%;
+  background-color: #141414;
+  border-top: 1px solid #333;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mobile-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-search {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 15px;
+}
+
+.mobile-search input {
+  flex: 1;
+  background: #333;
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 4px;
+}
+
+.mobile-search button {
+  background: #e50914;
+  border: none;
+  color: white;
+  padding: 0 15px;
+  border-radius: 4px;
+}
+
+/* Mobile Clear Button */
+.mobile-search .clear-btn {
+  background: none;
+  color: #b3b3b3;
+  padding: 4px 8px;
+}
+
+.mobile-search .clear-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .navbar__container {
+    padding: 0 20px;
+  }
+
+  .navbar__links,
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+}
