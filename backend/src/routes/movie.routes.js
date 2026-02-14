@@ -9,27 +9,27 @@ import {
 const router = Router();
 
 // ──────────────────────────────────────────────────────────────
-// GET /api/movies
+// GET /
 // Returns a paginated list of movies (default: first 24)
 // ──────────────────────────────────────────────────────────────
-router.get('/movies', getMovies);
+router.get('/', getMovies);
 
 // ──────────────────────────────────────────────────────────────
-// GET /api/movies/search?q=query
+// GET /search?q=query
 // Search movies by title, overview or genres
 // ──────────────────────────────────────────────────────────────
-router.get('/movies/search', searchMovies);
+router.get('/search', searchMovies);
 
 // ──────────────────────────────────────────────────────────────
-// GET /api/movies/batch?ids=123,456,789
+// GET /batch?ids=123,456,789
 // Get multiple movies by comma-separated IDs
 // ──────────────────────────────────────────────────────────────
-router.get('/movies/batch', getBatchMovies);
+router.get('/batch', getBatchMovies);
 
 // ──────────────────────────────────────────────────────────────
-// GET /api/movies/:id
+// GET /:id
 // Returns a single movie by ID
 // ──────────────────────────────────────────────────────────────
-router.get('/movies/:id', getMovieById);
+router.get('/:id', getMovieById);
 
 export default router;

@@ -1,7 +1,7 @@
 import {
     loadRecommendations,
     getMoviesByIdsFromStore,
-} from '../db.js';
+} from '../services/database.service.js';
 
 export const getContentBasedRecommendations = (req, res) => {
     try {

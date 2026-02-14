@@ -125,7 +125,20 @@ def run():
         json.dump(recommendations, f, indent=2)
 
     print("Saving movies.json...")
-    movies_data = df.to_dict(orient="records")
+    # Remove genre_set column (contains sets which are not JSON serializable)
+    df_to_save = df.drop(columns=['genre_set'], errors='ignore')
+    
+    # Convert to dict and ensure all values are JSON serializable
+    movies_data = df_to_save.to_dict(orient="records")
+    
+    # Convert numpy types to native Python types
+    for movie in movies_data:
+        for key, value in movie.items():
+            if hasattr(value, 'item'):  # numpy scalar
+                movie[key] = value.item()
+            elif isinstance(value, (np.integer, np.floating)):
+                movie[key] = value.item()
+    
     with open(OUT_MOVIES_JSON, "w", encoding="utf-8") as f:
         json.dump(movies_data, f, indent=2)
 

@@ -2,7 +2,7 @@ import {
     getMoviesFromStore,
     getMovieByIdFromStore,
     getMoviesByIdsFromStore,
-} from '../db.js';
+} from '../services/database.service.js';
 
 export const getMovies = (req, res) => {
     try {
@@ -13,19 +13,32 @@ export const getMovies = (req, res) => {
 
         let movies = getMoviesFromStore();
 
+        // Validate movies data
+        if (!movies) {
+            console.error('getMovies: movies is null or undefined');
+            return res.status(500).json({ error: 'Movies data not loaded' });
+        }
+
         if (!Array.isArray(movies)) {
+            console.error('getMovies: movies is not an array, type:', typeof movies);
             return res.status(500).json({ error: 'Movies data is not an array' });
         }
+
+        console.log(`getMovies: Loaded ${movies.length} movies, q="${q}", genre="${genre}"`);
 
         // Apply filters
         if (q || genre) {
             movies = movies.filter((m) => {
+                if (!m) return false; // Skip null/undefined movies
+
                 let matchesQuery = true;
                 let matchesGenre = true;
 
                 if (q) {
-                    const titleMatch = m.title?.toLowerCase().includes(q);
-                    const overviewMatch = m.overview?.toLowerCase().includes(q);
+                    const title = String(m.title || '');
+                    const overview = String(m.overview || '');
+                    const titleMatch = title.toLowerCase().includes(q);
+                    const overviewMatch = overview.toLowerCase().includes(q);
                     matchesQuery = titleMatch || overviewMatch;
                 }
 
@@ -39,6 +52,8 @@ export const getMovies = (req, res) => {
 
                 return matchesQuery && matchesGenre;
             });
+
+            console.log(`getMovies: After filtering, found ${movies.length} matches`);
         }
 
         const total = movies.length;
@@ -53,6 +68,7 @@ export const getMovies = (req, res) => {
         });
     } catch (err) {
         console.error('Error in GET /movies:', err);
+        console.error('Stack:', err.stack);
         res.status(500).json({ error: 'Internal server error', message: err.message });
     }
 };

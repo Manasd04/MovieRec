@@ -2,18 +2,18 @@ import { Router } from 'express';
 import { existsSync, statSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { loadRecommendations, loadMoviesFromJson } from '../db.js';
+import { loadRecommendations, loadMoviesFromJson } from '../services/database.service.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DATA_DIR = path.join(__dirname, '..', 'data');
+const DATA_DIR = path.join(__dirname, '../../data');
 
 const router = Router();
 
 /**
- * GET /api/ml/status
+ * GET /status
  * Returns information about ML data freshness and availability
  */
-router.get('/ml/status', (req, res) => {
+router.get('/status', (req, res) => {
     try {
         const status = {
             timestamp: new Date().toISOString(),
