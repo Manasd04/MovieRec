@@ -250,22 +250,121 @@
   text-align: center;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* Tablet Styles (768px - 1199px) */
+@media (max-width: 1199px) {
+  .recs-page__content {
+    padding: 100px 1.5rem 0;
+  }
+
   .recs-page__title {
-    font-size: 2.5rem;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+  }
+
+  .recs-panel {
+    padding: 1.75rem;
+  }
+
+  .algo-tab {
+    padding: 10px 24px;
+    font-size: 0.9rem;
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+/* Mobile Styles (320px - 767px) */
+@media (max-width: 767px) {
+  .recs-page__content {
+    padding: 90px 1rem 0;
+  }
+
+  .recs-page__title {
+    font-size: clamp(2rem, 7vw, 2.5rem);
+    letter-spacing: -0.5px;
+  }
+
+  .recs-page__subtitle {
+    font-size: 1.05rem;
   }
 
   .recs-panel {
     padding: 1.5rem;
+    border-radius: 20px;
+  }
+
+  .algo-tabs {
+    gap: 8px;
+  }
+
+  .algo-tab {
+    padding: 10px 20px;
+    font-size: 0.85rem;
+  }
+
+  .algo-description {
+    padding: 1.25rem;
+  }
+
+  .algo-description p {
+    font-size: 0.95rem;
+  }
+
+  .movie-picker__label {
+    font-size: 0.8rem;
   }
 
   .movie-picker__input-wrap {
     flex-direction: column;
+    gap: 12px;
+  }
+
+  .movie-picker__input {
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
   }
 
   .movie-picker__btn {
     padding: 1.2rem;
     width: 100%;
+  }
+
+  .recs-results .section-title {
+    font-size: 1.5rem;
+    margin: 3rem 0 1.5rem;
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .recs-empty {
+    padding: 3rem 1.5rem;
+  }
+
+  .recs-empty__icon {
+    font-size: 3rem;
+  }
+
+  .recs-empty h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+  .recs-page__title {
+    font-size: 2rem;
+  }
+
+  .algo-tabs {
+    gap: 6px;
+  }
+
+  .algo-tab {
+    padding: 8px 16px;
+    font-size: 0.8rem;
   }
 }

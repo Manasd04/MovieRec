@@ -213,10 +213,73 @@
   text-underline-offset: 4px;
 }
 
+/* Tablet Styles (768px - 1199px) */
+@media (max-width: 1199px) {
+  .auth-card {
+    max-width: 420px;
+    padding: 2.5rem;
+  }
+
+  .auth-logo {
+    font-size: 2.25rem;
+  }
+
+  .auth-title {
+    font-size: 1.65rem;
+  }
+}
+
+/* Mobile Styles (320px - 767px) */
+@media (max-width: 767px) {
+  .auth-container {
+    padding: 1.5rem;
+  }
+
+  .auth-card {
+    padding: 2rem 1.5rem;
+    background: rgba(22, 27, 34, 0.85);
+    border-radius: 20px;
+  }
+
+  .auth-logo {
+    font-size: 2rem;
+  }
+
+  .auth-title {
+    font-size: 1.5rem;
+  }
+
+  .auth-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .form-group input {
+    padding: 0.9rem 1.1rem;
+    font-size: 1rem;
+  }
+
+  .auth-submit {
+    padding: 0.9rem;
+    font-size: 1rem;
+  }
+
+  .auth-footer {
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra Small Mobile */
 @media (max-width: 480px) {
   .auth-card {
     padding: 2rem;
     background: rgba(22, 27, 34, 0.85);
-    /* More opaque for readability */
+  }
+
+  .auth-logo {
+    font-size: 1.85rem;
+  }
+
+  .auth-title {
+    font-size: 1.35rem;
   }
 }

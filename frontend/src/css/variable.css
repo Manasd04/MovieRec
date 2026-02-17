@@ -42,4 +42,17 @@
 
   --header-height: 70px;
   --container-max: 1280px;
+
+  /* Responsive Breakpoints (for reference in media queries) */
+  /* Mobile: 320px - 767px */
+  /* Tablet: 768px - 1199px */
+  /* Desktop: 1200px+ */
+
+  /* Responsive Spacing */
+  --spacing-mobile: 1rem;
+  --spacing-tablet: 1.5rem;
+  --spacing-desktop: 2rem;
+
+  /* Touch Target Minimum */
+  --touch-target-min: 44px;
 }

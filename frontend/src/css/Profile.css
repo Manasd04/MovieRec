@@ -86,3 +86,81 @@
 .btn-edit:hover {
   background-color: #2563eb;
 }
+
+/* Tablet Styles (768px - 1199px) */
+@media (max-width: 1199px) {
+  .profile-container {
+    max-width: 700px;
+    padding: 1.75rem;
+  }
+
+  .profile-avatar {
+    width: 90px;
+    height: 90px;
+    font-size: 2.75rem;
+  }
+
+  .profile-info h1 {
+    font-size: 1.85rem;
+  }
+}
+
+/* Mobile Styles (320px - 767px) */
+@media (max-width: 767px) {
+  .profile-container {
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .profile-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+  }
+
+  .profile-info h1 {
+    font-size: 1.65rem;
+  }
+
+  .profile-email {
+    font-size: 1rem;
+  }
+
+  .detail-item {
+    padding: 1.25rem;
+  }
+
+  .detail-label {
+    font-size: 0.85rem;
+  }
+
+  .detail-value {
+    font-size: 1.1rem;
+  }
+}
+
+/* Extra Small Mobile */
+@media (max-width: 480px) {
+  .profile-container {
+    margin: 1rem auto;
+    padding: 1.25rem;
+  }
+
+  .profile-avatar {
+    width: 70px;
+    height: 70px;
+    font-size: 2.25rem;
+  }
+
+  .profile-info h1 {
+    font-size: 1.5rem;
+  }
+}
